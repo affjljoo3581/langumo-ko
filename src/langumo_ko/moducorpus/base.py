@@ -1,3 +1,4 @@
+import os
 import ijson
 import zipfile
 from typing import Iterable, IO
@@ -19,7 +20,7 @@ class ModuBaseParser(Parser):
     def extract(self, raw: AuxiliaryFile) -> Iterable[str]:
         with zipfile.ZipFile(raw.name, 'r') as zfp:
             for filename in zfp.namelist():
-                if filename.startswith('#'):
+                if os.path.basename(filename).startswith('#'):
                     continue
 
                 with zfp.open(filename, 'r') as fp:
