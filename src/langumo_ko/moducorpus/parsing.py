@@ -3,14 +3,14 @@ from langumo_ko.moducorpus.base import ModuBaseParser
 
 
 class ModuWrittenParser(ModuBaseParser):
-    def parse(self, text: str) -> str:
-        return text
+    pass
 
 
 class ModuWebParser(ModuBaseParser):
     def parse(self, text: str) -> str:
-        return '\n'.join([line.strip() for line in text.splitlines()
-                          if utils.korean_character_ratio(line) > 0.5])
+        return super().parse(
+            '\n'.join([line.strip() for line in text.splitlines()
+                       if utils.korean_character_ratio(line) > 0.5]))
 
 
 class ModuNewsParser(ModuBaseParser):
@@ -27,4 +27,4 @@ class ModuNewsParser(ModuBaseParser):
             line for line in text.splitlines()
             if utils.is_normal_character(line[0]) and line[-1] == '.'])
 
-        return text
+        return super().parse(text)
