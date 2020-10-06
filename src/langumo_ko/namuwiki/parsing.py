@@ -1,3 +1,4 @@
+import re
 import ijson
 from typing import Iterable
 from langumo.building import Parser
