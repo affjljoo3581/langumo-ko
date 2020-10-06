@@ -1,4 +1,7 @@
 # langumo-ko
+![PyPI](https://img.shields.io/pypi/v/langumo-ko?color=brightgreen)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/langumo-ko)
+![PyPI - Format](https://img.shields.io/pypi/format/langumo-ko?color=orange)
 
 한국어 말뭉치용 langumo parser 모음
 
