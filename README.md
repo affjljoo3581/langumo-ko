@@ -13,17 +13,17 @@
 같습니다.
 
 - [나무위키](https://namu.wiki/w/%EB%82%98%EB%AC%B4%EC%9C%84%ED%82%A4:%EB%8C%80%EB%AC%B8)
-  (`langumo_ko.namuwiki.NamuWikiParser`):
+  (`langumo_ko.NamuWikiParser`):
   나무위키 덤프 파일을 파싱합니다. 7z 형식으로 압축된 덤프 파일에 포함된 원본 json
   파일을 사용해야 합니다.
 - [모두의 말뭉치](https://corpus.korean.go.kr/) - 신문 말뭉치
-  (`langumo_ko.moducorpus.ModuNewsCorpus`): 모두의 말뭉치에서 제공하는 신문 말뭉치
+  (`langumo_ko.ModuNewsParser`): 모두의 말뭉치에서 제공하는 신문 말뭉치
   데이터를 파싱합니다.
 - [모두의 말뭉치](https://corpus.korean.go.kr/) - 문어 말뭉치
-  (`langumo_ko.moducorpus.ModuWrittenCorpus`): 모두의 말뭉치에서 제공하는 문어
+  (`langumo_ko.ModuWrittenParser`): 모두의 말뭉치에서 제공하는 문어
   말뭉치 데이터를 파싱합니다.
 - [모두의 말뭉치](https://corpus.korean.go.kr/) - 웹 말뭉치
-  (`langumo_ko.moducorpus.ModuWebCorpus`): 모두의 말뭉치에서 제공하는 웹
+  (`langumo_ko.ModuWebParser`): 모두의 말뭉치에서 제공하는 웹
   말뭉치 데이터를 파싱합니다.
 
 
@@ -54,7 +54,7 @@ $ python setup.py install
 langumo:
   inputs:
   - path: src/NIKL_NEWSPAPER(v1.0).zip
-    parser: langumo_ko.moducorpus.ModuNewsParser
+    parser: langumo_ko.ModuNewsParser
   
   # other configurations...
 ```
