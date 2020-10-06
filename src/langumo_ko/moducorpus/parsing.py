@@ -9,7 +9,8 @@ class ModuWrittenParser(ModuBaseParser):
 
 class ModuWebParser(ModuBaseParser):
     def parse(self, text: str) -> str:
-        return text
+        return '\n'.join([line.strip() for line in text.splitlines()
+                          if utils.korean_character_ratio(line) > 0.5])
 
 
 class ModuNewsParser(ModuBaseParser):
