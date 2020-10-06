@@ -185,6 +185,7 @@ class NamuWikiRenderer:
         for renderer in NamuWikiRenderer.renderers:
             source = renderer.render(source)
 
+        # Remove duplicated spaces.
         while '  ' in source:
             source = source.replace('  ', '')
         source = '\n'.join([line.strip() for line in source.splitlines()])
