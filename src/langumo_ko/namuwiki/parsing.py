@@ -1,9 +1,9 @@
 import re
 import ijson
 from typing import Iterable
+import langumo_ko.utils as utils
 from langumo.building import Parser
 from langumo.utils import AuxiliaryFile
-import langumo_ko.utils as utils
 from langumo_ko.namuwiki.rendering import NamuWikiRenderer
 
 
