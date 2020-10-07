@@ -1,3 +1,21 @@
+import re
+
+
+_single_quotes_pattern = re.compile('[\x60\xb4\u2018\u2019]')
+_double_quotes_pattern = re.compile('[\u201c\u201d]')
+
+
+def normalize_quotes(text: str) -> str:
+    text = _single_quotes_pattern.sub('\'', text)
+    text = _double_quotes_pattern.sub('"', text)
+    return text
+
+
+def remove_duplicated_spaces(text: str) -> str:
+    text = text.replace('\t', ' ')
+    while '  ' in text:
+        text = text.replace('  ', ' ')
+    return text
 
 
 def korean_character_ratio(text: str, ignore_whitespace: bool = True) -> float:
