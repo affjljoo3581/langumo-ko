@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='langumo-ko',
-    version='0.1.3',
+    version='0.1.4',
 
     author='Jungwoo Park',
     author_email='affjljoo3581@gmail.com',
