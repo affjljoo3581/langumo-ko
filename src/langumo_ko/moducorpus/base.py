@@ -33,5 +33,5 @@ class ModuBaseParser(Parser):
 
     def parse(self, text: str) -> str:
         text = utils.normalize_quotes(text)
-        text = utils.remove_duplicated_spaces(utils)
+        text = utils.remove_duplicated_spaces(text)
         return text
