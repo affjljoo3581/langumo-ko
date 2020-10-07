@@ -24,23 +24,10 @@ class NamuWikiParser(Parser):
                 yield value
 
     def parse(self, text: str) -> str:
-        filtered = []
-        for line in NamuWikiRenderer.render(text).strip().splitlines():
-            if (not line
-                    or '.' not in line
-                    or utils.korean_character_ratio(line) < 0.1):
-                continue
+        text = NamuWikiRenderer.render(text)
+        text = utils.normalize_quotes(text)
+        text = utils.remove_duplicated_spaces(text)
 
-            # Remove duplicated spaces.
-            line = line.replace('\n', ' ').replace('\t', ' ')
-            while '  ' in line:
-                line = line.replace('  ', ' ')
-
-            # Normalize the quotes by replacing unusual ones to the standard
-            # ones.
-            line = NamuWikiParser.single_quotes_pattern.sub('\'', line)
-            line = NamuWikiParser.double_quotes_pattern.sub('"', line)
-
-            filtered.append(line)
-
-        return '\n'.join(filtered)
+        return '\n'.join([line for line in text.splitlines()
+                          if '.' in line
+                          and utils.korean_character_ratio(line) > 0.1])

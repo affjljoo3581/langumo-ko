@@ -15,9 +15,6 @@ class ModuWebParser(ModuBaseParser):
 
 class ModuNewsParser(ModuBaseParser):
     def parse(self, text: str) -> str:
-        text = '\n'.join([line.strip() for line in text.splitlines()
-                          if line.strip()])
-
         # Skip the contents which contain too many non-Korean characters.
         if utils.korean_character_ratio(text) < 0.5:
             return ''
